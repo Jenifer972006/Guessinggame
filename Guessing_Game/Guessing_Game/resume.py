@@ -17,3 +17,4 @@ st.dataframe(Dict)
 skills=["python","java"]
 for skills in skills:
     st.write(f"-{skills}")
+    
