@@ -1,23 +1,18 @@
-import streamlit as st
-st.title("Welcome")
-st.write("Welcome to guessing game")
-st.write("think a number between 1 and 100")
-low=0
-high=100
-steps=0
-while low<=high:
-    mid=(low+high)//2
-    responce=(input("is the number you guessed"+str(mid)+"(reply yes or low or high)"))
-    if responce=="yes":
-        steps+=1
-        st.write(f"congrtulation")
-        break
-    elif responce=="low":
-        steps+=1
-        high=mid-1
-    elif responce=="high":
-        steps+=1
-        low=mid+1
-    else:
-        st.write(f"invalid statement")
-st.write(f"it took",steps,"steps.")
+import random
+
+target_number = random.randint(1, 100)
+print("Welcome to the Guessing Game!")
+print("I'm thinking of a number between 1 and 100. Can you guess what it is?")
+
+while True:
+    try:
+        guess = int(input("Enter your guess: "))
+        if guess == target_number:
+            print("Congratulations! You guessed the correct number.")
+            break
+        elif guess < target_number:
+            print("Too low! Try again.")
+        else:
+            print("Too high! Try again.")
+    except ValueError:
+        print("Please enter a valid number.")
